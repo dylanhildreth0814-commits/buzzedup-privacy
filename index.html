@@ -1,251 +1,1357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy — BuzzedUp</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --pink: #FF3B81;
-      --bg: #07070f;
-      --surface: #13131a;
-      --border: #1e1e2a;
-      --text: #ffffff;
-      --text-secondary: #9999bb;
-      --text-tertiary: #55556a;
-    }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
-      line-height: 1.7;
-      padding: 0;
-    }
-    header {
-      background: linear-gradient(180deg, #1a0a1e 0%, var(--bg) 100%);
-      padding: 60px 24px 48px;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-    }
-    .logo-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-    .logo-icon {
-      width: 48px; height: 48px;
-      background: rgba(255,59,129,0.1);
-      border: 1px solid rgba(255,59,129,0.2);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
-    }
-    .logo-name {
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.5px;
-    }
-    h1 {
-      font-size: 36px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
-    }
-    .subtitle {
-      color: var(--text-secondary);
-      font-size: 15px;
-    }
-    .effective {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 6px 16px;
-      background: rgba(255,59,129,0.08);
-      border: 1px solid rgba(255,59,129,0.2);
-      border-radius: 999px;
-      font-size: 13px;
-      color: var(--pink);
-      font-weight: 600;
-    }
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
-    }
-    .section {
-      margin-bottom: 40px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-    }
-    .section-number {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--pink);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    h2 {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 14px;
-      letter-spacing: -0.2px;
-    }
-    p {
-      color: var(--text-secondary);
-      font-size: 15px;
-      margin-bottom: 12px;
-    }
-    p:last-child { margin-bottom: 0; }
-    ul {
-      color: var(--text-secondary);
-      font-size: 15px;
-      padding-left: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    ul li::marker { color: var(--pink); }
-    .highlight {
-      background: rgba(255,59,129,0.06);
-      border-left: 3px solid var(--pink);
-      border-radius: 0 8px 8px 0;
-      padding: 14px 18px;
-      margin-top: 14px;
-      color: var(--text-secondary);
-      font-size: 14px;
-    }
-    .contact-box {
-      background: rgba(255,59,129,0.06);
-      border: 1px solid rgba(255,59,129,0.15);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-    }
-    .contact-box p { margin: 0; }
-    .contact-email {
-      color: var(--pink);
-      font-weight: 700;
-      font-size: 16px;
-      text-decoration: none;
-    }
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      border-top: 1px solid var(--border);
-      color: var(--text-tertiary);
-      font-size: 13px;
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BuzzedUp · Owner Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#08080f;--s1:#0e0e1a;--s2:#13131f;--s3:#1a1a28;--s4:#202030;
+  --border:rgba(255,255,255,0.065);--bh:rgba(255,255,255,0.12);
+  --pink:#FF3B81;--pink-d:rgba(255,59,129,0.09);--pink-b:rgba(255,59,129,0.20);
+  --teal:#00D9A3;--teal-d:rgba(0,217,163,0.09);--teal-b:rgba(0,217,163,0.20);
+  --gold:#F5A623;--gold-d:rgba(245,166,35,0.09);--gold-b:rgba(245,166,35,0.20);
+  --purple:#8B7FF5;--purple-d:rgba(139,127,245,0.09);--purple-b:rgba(139,127,245,0.20);
+  --t0:#ffffff;--t1:rgba(255,255,255,0.78);--t2:rgba(255,255,255,0.44);--t3:rgba(255,255,255,0.22);
+  --r:10px;--rsm:7px;--rlg:14px;--sidebar:220px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t0);min-height:100vh;overflow-x:hidden;font-size:13.5px;line-height:1.5;}
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.07);border-radius:2px;}
+
+/* ── AUTH ── */
+.auth-wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg);padding:24px;z-index:300;}
+.auth-card{width:100%;max-width:376px;background:var(--s1);border:1px solid var(--border);border-radius:18px;padding:42px 38px;display:flex;flex-direction:column;align-items:center;box-shadow:0 40px 100px rgba(0,0,0,.7);animation:rise .3s ease;}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.auth-mark{width:74px;height:74px;background:#08080f;border:1px solid rgba(255,59,129,0.2);border-radius:20px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;box-shadow:0 8px 28px rgba(255,59,129,.22),0 0 0 1px rgba(255,59,129,0.08);}
+.auth-title{font-size:19px;font-weight:700;letter-spacing:-.4px;margin-bottom:5px;}
+.auth-sub{font-size:13px;color:var(--t2);margin-bottom:30px;text-align:center;line-height:1.6;}
+.field{width:100%;margin-bottom:12px;}
+.fl{display:block;font-size:10.5px;font-weight:600;letter-spacing:.07em;color:var(--t2);text-transform:uppercase;margin-bottom:7px;}
+.fi{width:100%;background:var(--s2);border:1px solid var(--border);border-radius:var(--rsm);color:var(--t0);font-family:inherit;font-size:13.5px;padding:11px 14px;outline:none;transition:border-color .15s,box-shadow .15s;}
+.fi:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,59,129,.08);}
+.fi::placeholder{color:var(--t3);}
+.fi:disabled{opacity:.35;cursor:default;}
+.fi-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.35)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;cursor:pointer;}
+.auth-err{width:100%;font-size:12px;font-weight:500;color:var(--pink);background:var(--pink-d);border:1px solid var(--pink-b);border-radius:var(--rsm);padding:9px 12px;margin-bottom:12px;display:none;}
+.btn-p{width:100%;padding:12px;background:var(--pink);border:none;border-radius:var(--rsm);color:#fff;font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer;transition:opacity .15s,transform .1s;margin-top:4px;letter-spacing:-.1px;}
+.btn-p:hover{opacity:.88;}.btn-p:active{transform:scale(.99);}.btn-p:disabled{opacity:.3;cursor:not-allowed;transform:none;}
+.btn-teal{background:var(--teal);color:#071a12;}
+.pw-bar{width:100%;height:2px;background:var(--s3);border-radius:2px;overflow:hidden;margin-top:8px;}
+.pw-fill{height:100%;border-radius:2px;transition:width .3s,background .3s;width:0%;}
+.pw-hint{font-size:11px;color:var(--t3);margin-top:5px;}
+
+/* ── LAYOUT ── */
+#app{display:none;}
+.shell{display:flex;min-height:100vh;}
+
+/* ── SIDEBAR ── */
+.sidebar{width:var(--sidebar);flex-shrink:0;background:var(--s1);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:40;}
+.sb-brand{padding:20px 16px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:11px;}
+.sb-logo{width:32px;height:32px;background:#08080f;border:1px solid rgba(255,59,129,0.18);border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.sb-wordmark{font-size:14px;font-weight:700;letter-spacing:-.3px;color:var(--t0);}
+.sb-version{font-size:10px;color:var(--t3);margin-top:1px;font-weight:400;}
+.sb-nav{flex:1;padding:10px 8px;overflow-y:auto;}
+.sb-sec{font-size:10px;font-weight:600;letter-spacing:.09em;color:var(--t3);text-transform:uppercase;padding:14px 8px 5px;}
+.nv{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;color:var(--t2);font-size:13px;font-weight:500;cursor:pointer;transition:background .1s,color .1s;user-select:none;margin-bottom:2px;position:relative;}
+.nv:hover{background:rgba(255,255,255,.04);color:var(--t1);}
+.nv.active{background:var(--pink-d);color:var(--pink);}
+.nv.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2.5px;background:var(--pink);border-radius:0 2px 2px 0;}
+.nv-icon{width:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;opacity:.7;}
+.nv.active .nv-icon{opacity:1;}
+.nv-icon svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.sb-foot{padding:10px;border-top:1px solid var(--border);}
+.owner-chip{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;}
+.owner-av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--teal));display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0;}
+.owner-name{font-size:12px;font-weight:600;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.owner-role{font-size:10px;color:var(--t3);}
+.signout-btn{background:none;border:none;color:var(--t3);cursor:pointer;padding:4px;border-radius:5px;transition:color .12s;display:flex;align-items:center;margin-left:auto;}
+.signout-btn:hover{color:var(--pink);}
+.signout-btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ── MAIN ── */
+.main{flex:1;margin-left:var(--sidebar);padding:32px 36px 80px;}
+.page{display:none;animation:rise .18s ease;}
+.page.active{display:block;}
+.ph{margin-bottom:28px;}
+.ph-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
+.ph-title{font-size:22px;font-weight:700;letter-spacing:-.5px;line-height:1.2;}
+.ph-sub{font-size:13px;color:var(--t2);margin-top:4px;}
+.live-pill{display:flex;align-items:center;gap:6px;padding:5px 12px;background:var(--teal-d);border:1px solid var(--teal-b);border-radius:999px;font-size:11px;font-weight:600;color:var(--teal);white-space:nowrap;flex-shrink:0;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+
+/* ── BAR TABS ── */
+.bar-tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:22px;}
+.btab{padding:6px 13px;border-radius:7px;font-size:12px;font-weight:500;border:1px solid var(--border);color:var(--t2);background:transparent;cursor:pointer;transition:all .1s;font-family:inherit;letter-spacing:-.1px;}
+.btab:hover{border-color:var(--bh);color:var(--t1);}
+.btab.active{background:var(--pink-d);border-color:var(--pink-b);color:var(--pink);font-weight:600;}
+
+/* ── STAT CARDS ── */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;}
+.stat-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;position:relative;overflow:hidden;transition:border-color .15s;}
+.stat-card:hover{border-color:var(--bh);}
+.stat-accent{position:absolute;top:0;left:0;right:0;height:2px;}
+.stat-lbl{font-size:11px;font-weight:500;color:var(--t2);margin-bottom:10px;letter-spacing:.01em;}
+.stat-val{font-size:30px;font-weight:700;letter-spacing:-.8px;line-height:1;margin-bottom:6px;}
+.stat-meta{font-size:11px;color:var(--t3);}
+.stat-meta.up{color:var(--teal);}
+.stat-meta.dn{color:var(--pink);}
+.stat-icon{position:absolute;top:14px;right:16px;font-size:18px;opacity:.18;}
+
+/* ── CARDS ── */
+.card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:13px;transition:border-color .15s;}
+.card:hover{border-color:var(--bh);}
+.card-hd{font-size:13px;font-weight:600;letter-spacing:-.1px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.card-hd-r{font-size:11px;color:var(--t3);font-weight:400;}
+
+/* ── CHART GRIDS ── */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px;}
+.ch{position:relative;height:180px;}
+.ch-lg{position:relative;height:220px;}
+
+/* ── VIBE BARS ── */
+.vibe-list{display:flex;flex-direction:column;gap:11px;}
+.vibe-row{display:flex;align-items:center;gap:10px;}
+.vibe-dot-sm{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.vibe-lbl{font-size:12px;font-weight:500;width:80px;flex-shrink:0;color:var(--t1);}
+.vibe-track{flex:1;height:3px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;}
+.vibe-fill{height:100%;border-radius:3px;transition:width .9s cubic-bezier(.22,.68,0,1.1);}
+.vibe-pct{font-size:11px;color:var(--t2);width:30px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums;}
+
+/* ── HEATMAP ── */
+.hmap{display:grid;grid-template-columns:38px repeat(7,1fr);gap:3px;font-size:10px;}
+.hmap-day{color:var(--t3);font-weight:600;text-align:center;padding-bottom:4px;letter-spacing:.04em;}
+.hmap-hr{color:var(--t3);display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:9px;}
+.hmap-cell{height:22px;border-radius:4px;background:rgba(255,255,255,.03);cursor:default;transition:opacity .1s;}
+.hmap-cell:hover{opacity:.75;}
+
+/* ── DEALS EDITOR ── */
+.section-label{font-size:10.5px;font-weight:600;letter-spacing:.07em;color:var(--t3);text-transform:uppercase;margin:20px 0 9px;}
+.event-wrap{display:flex;align-items:center;gap:9px;background:var(--s2);border:1px solid var(--gold-b);border-radius:var(--rsm);padding:11px 14px;}
+.event-input{flex:1;background:transparent;border:none;color:var(--t0);font-family:inherit;font-size:13.5px;font-weight:500;outline:none;}
+.event-input::placeholder{color:var(--t3);font-weight:400;}
+.icon-btn{background:none;border:none;color:var(--t3);cursor:pointer;padding:4px 6px;border-radius:4px;transition:color .12s;line-height:1;font-size:15px;font-family:inherit;}
+.icon-btn:hover{color:var(--pink);}
+.deal-list{display:flex;flex-direction:column;gap:7px;}
+.deal-row{display:flex;gap:7px;align-items:center;background:var(--s2);border:1px solid var(--border);border-radius:var(--rsm);padding:9px 11px;transition:border-color .12s;}
+.deal-row:focus-within{border-color:rgba(255,255,255,0.14);}
+.di-emoji-btn{width:40px;height:36px;background:var(--s3);border:1px solid var(--border);border-radius:6px;color:var(--t0);font-size:17px;text-align:center;cursor:pointer;transition:border-color .12s;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;}
+.di-emoji-btn:hover{border-color:var(--pink-b);}
+.di-t{flex:1;background:var(--s3);border:1px solid var(--border);border-radius:6px;color:var(--t0);font-family:inherit;font-size:13px;padding:8px 11px;outline:none;transition:border-color .12s;}
+.di-h{width:100px;background:var(--s3);border:1px solid var(--border);border-radius:6px;color:var(--t0);font-family:inherit;font-size:12px;padding:8px 10px;outline:none;transition:border-color .12s;}
+.di-t:focus,.di-h:focus{border-color:var(--pink);}
+.di-t::placeholder,.di-h::placeholder{color:var(--t3);}
+.btn-dashed{width:100%;padding:10px;margin-top:7px;background:transparent;border:1px dashed rgba(255,255,255,.09);border-radius:var(--rsm);color:var(--t2);font-family:inherit;font-size:12px;font-weight:500;cursor:pointer;transition:all .12s;}
+.btn-dashed:hover{border-color:var(--pink-b);color:var(--pink);background:var(--pink-d);}
+.btn-save{width:100%;padding:11px;margin-top:14px;background:var(--pink);border:none;border-radius:var(--rsm);color:#fff;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:opacity .12s,transform .1s;letter-spacing:-.1px;}
+.btn-save:hover{opacity:.88;}.btn-save:active{transform:scale(.99);}.btn-save:disabled{opacity:.3;cursor:not-allowed;transform:none;}
+.last-saved{font-size:11px;color:var(--t3);margin-top:8px;text-align:right;}
+
+/* ── EMOJI PICKER ── */
+.emoji-picker{position:absolute;top:calc(100% + 6px);left:0;z-index:200;background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:10px;box-shadow:0 16px 48px rgba(0,0,0,.6);width:260px;display:none;}
+.emoji-picker.open{display:block;}
+.emoji-cats{display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap;}
+.emoji-cat{font-size:11px;padding:3px 8px;border-radius:4px;cursor:pointer;color:var(--t2);background:transparent;border:none;font-family:inherit;transition:background .1s,color .1s;}
+.emoji-cat.active,.emoji-cat:hover{background:var(--pink-d);color:var(--pink);}
+.emoji-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;}
+.emoji-item{font-size:20px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:5px;cursor:pointer;transition:background .1s;}
+.emoji-item:hover{background:rgba(255,255,255,.07);}
+
+/* ── RECURRING DEALS ── */
+.recur-row{display:flex;gap:7px;align-items:flex-start;background:var(--s2);border:1px solid var(--border);border-radius:var(--rsm);padding:12px 13px;margin-bottom:7px;transition:border-color .12s;}
+.recur-row:focus-within{border-color:rgba(255,255,255,.14);}
+.recur-main{flex:1;display:flex;flex-direction:column;gap:7px;}
+.recur-top{display:flex;gap:7px;align-items:center;}
+.day-pills{display:flex;gap:4px;flex-wrap:wrap;}
+.day-pill{font-size:11px;font-weight:600;padding:3px 8px;border-radius:5px;border:1px solid var(--border);color:var(--t2);background:transparent;cursor:pointer;font-family:inherit;transition:all .1s;}
+.day-pill.active{background:var(--pink-d);border-color:var(--pink-b);color:var(--pink);}
+.recur-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;letter-spacing:.05em;color:var(--teal);background:var(--teal-d);border:1px solid var(--teal-b);border-radius:4px;padding:2px 7px;text-transform:uppercase;}
+
+/* ── RECURRING STATUS BANNER ── */
+.recur-status-banner{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--rsm);font-size:12px;margin-bottom:13px;border:1px solid;}
+.recur-status-banner.ok{background:var(--teal-d);border-color:var(--teal-b);color:var(--teal);}
+.recur-status-banner.warn{background:var(--gold-d);border-color:var(--gold-b);color:var(--gold);}
+
+/* ── ANALYTICS KPI ── */
+.kpi-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px;}
+.kpi-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;text-align:center;transition:border-color .15s;}
+.kpi-card:hover{border-color:var(--bh);}
+.kpi-val{font-size:26px;font-weight:700;letter-spacing:-.6px;line-height:1;margin-bottom:5px;}
+.kpi-lbl{font-size:10.5px;font-weight:500;color:var(--t2);text-transform:uppercase;letter-spacing:.06em;}
+
+/* ── AI ── */
+.ai-panel{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:13px;transition:border-color .15s;}
+.ai-panel:hover{border-color:var(--bh);}
+.ai-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.ai-badge{font-size:10px;font-weight:700;letter-spacing:.07em;color:var(--pink);background:var(--pink-d);border:1px solid var(--pink-b);border-radius:5px;padding:2px 8px;text-transform:uppercase;}
+.ai-title{font-size:14px;font-weight:600;letter-spacing:-.1px;}
+.ai-body{display:flex;flex-direction:column;gap:8px;min-height:36px;}
+.ai-hint{font-size:13px;color:var(--t2);}
+.ai-item{background:var(--s2);border:1px solid var(--border);border-radius:var(--rsm);padding:12px 14px 12px 36px;font-size:13px;color:var(--t1);line-height:1.6;position:relative;}
+.ai-item::before{content:'→';position:absolute;left:14px;color:var(--pink);font-weight:700;}
+.ai-item strong{color:var(--t0);font-weight:600;}
+.ai-item .tag{display:inline-block;margin-left:6px;font-size:11px;color:var(--teal);font-weight:500;}
+.btn-ai{margin-top:12px;padding:8px 16px;background:transparent;border:1px solid var(--border);border-radius:var(--rsm);color:var(--t1);font-family:inherit;font-size:12px;font-weight:500;cursor:pointer;transition:all .12s;display:inline-flex;align-items:center;gap:7px;}
+.btn-ai:hover{border-color:var(--pink-b);color:var(--pink);background:var(--pink-d);}
+.btn-ai:disabled{opacity:.4;cursor:not-allowed;}
+.spinner{width:11px;height:11px;border:1.5px solid rgba(255,59,129,.3);border-top-color:var(--pink);border-radius:50%;animation:spin .6s linear infinite;display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── PROMOTIONS ── */
+.promo-live-card{background:var(--s1);border:1px solid var(--teal-b);border-radius:var(--r);padding:20px 22px;margin-bottom:13px;position:relative;overflow:hidden;}
+.promo-live-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal);}
+.promo-empty{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:44px 22px;text-align:center;color:var(--t3);margin-bottom:13px;}
+.promo-stat-row{display:flex;gap:24px;margin-top:12px;}
+.promo-stat{display:flex;flex-direction:column;gap:3px;}
+.promo-stat-val{font-size:22px;font-weight:700;letter-spacing:-.4px;}
+.promo-stat-lbl{font-size:11px;color:var(--t2);}
+.promo-bar-wrap{height:4px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;margin-top:14px;}
+.promo-bar-fill{height:100%;background:var(--pink);border-radius:4px;transition:width .8s cubic-bezier(.22,.68,0,1.1);}
+
+/* ── SETTINGS ── */
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+.settings-field{display:flex;flex-direction:column;gap:7px;}
+.danger-zone{border:1px solid rgba(255,59,129,.15);border-radius:var(--r);padding:18px 20px;margin-top:13px;background:rgba(255,59,129,.025);}
+.danger-title{font-size:10.5px;font-weight:600;letter-spacing:.07em;color:var(--pink);text-transform:uppercase;margin-bottom:8px;}
+.danger-text{font-size:13px;color:var(--t2);margin-bottom:12px;line-height:1.55;}
+.btn-danger{padding:9px 16px;background:transparent;border:1px solid var(--pink-b);border-radius:var(--rsm);color:var(--pink);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;transition:background .12s;}
+.btn-danger:hover{background:var(--pink-d);}
+
+/* ── REQUEST ── */
+.request-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:13px;}
+.request-pending{background:var(--s2);border:1px solid var(--border);border-radius:var(--rsm);padding:11px 14px;font-size:12px;color:var(--t2);margin-bottom:7px;display:flex;align-items:center;justify-content:space-between;}
+.pending-badge{font-size:10px;font-weight:600;letter-spacing:.06em;color:var(--gold);background:var(--gold-d);border:1px solid var(--gold-b);border-radius:4px;padding:2px 7px;text-transform:uppercase;}
+
+/* ── EMPTY / TOAST ── */
+.empty{text-align:center;padding:48px 20px;color:var(--t3);font-size:13px;}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(8px);background:var(--s2);border:1px solid rgba(255,255,255,.12);color:var(--t0);padding:10px 20px;border-radius:999px;font-size:13px;font-weight:500;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:9999;white-space:nowrap;box-shadow:0 10px 32px rgba(0,0,0,.6);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.divider{height:1px;background:var(--border);margin:18px 0;}
+
+@media(max-width:900px){.stat-grid{grid-template-columns:repeat(2,1fr);}.chart-grid{grid-template-columns:1fr;}.kpi-strip{grid-template-columns:repeat(3,1fr);}.settings-grid{grid-template-columns:1fr;}}
+@media(max-width:640px){.sidebar{display:none;}.main{margin-left:0;padding:20px 16px 60px;}.kpi-strip{grid-template-columns:repeat(2,1fr);}}
+</style>
 </head>
 <body>
 
-<header>
-  <div class="logo-row">
-    <div class="logo-icon">🍸</div>
-    <span class="logo-name">BuzzedUp</span>
-  </div>
-  <h1>Privacy Policy</h1>
-  <p class="subtitle">We keep it simple. Here's exactly what we collect and why.</p>
-  <span class="effective">Effective March 4, 2026</span>
-</header>
-
-<main>
-
-  <div class="section">
-    <div class="section-number">01</div>
-    <h2>Who We Are</h2>
-    <p>BuzzedUp is a social bar discovery app that lets users check in at bars, report live vibes, and find tonight's drink deals. We are operated by BuzzedUp LLC.</p>
-    <p>Questions? Contact us at <a href="mailto:privacy@buzzedup.app" class="contact-email">privacy@buzzedup.app</a></p>
-  </div>
-
-  <div class="section">
-    <div class="section-number">02</div>
-    <h2>What We Collect</h2>
-    <p>We collect the minimum data needed to make the app work:</p>
-    <ul>
-      <li><strong style="color:#fff">Location</strong> — used only to show nearby bars and verify you're physically at a bar when checking in. We do not store or sell your location history.</li>
-      <li><strong style="color:#fff">Anonymous user ID</strong> — a randomly generated ID (via Firebase Anonymous Auth) so your check-ins and posts are linked to your session. No name, email, or phone number required.</li>
-      <li><strong style="color:#fff">Check-ins and vibes</strong> — the bar you checked into, the vibe tags you selected, and any activity posts you submit. These are public within the app.</li>
-      <li><strong style="color:#fff">Device info</strong> — basic device and OS data collected automatically by Firebase for crash reporting and analytics.</li>
-    </ul>
-    <div class="highlight">
-      We never ask for your name, email, phone number, or any personally identifying information. You are anonymous by default.
+<!-- ── LOGIN ── -->
+<div class="auth-wrap" id="login-screen">
+  <div class="auth-card">
+    <div class="auth-mark">
+      <svg viewBox="20 10 160 225" width="36" height="42" fill="none">
+        <defs><linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FF3B81"/><stop offset="100%" stop-color="#ff6ba8"/></linearGradient></defs>
+        <path d="M18 78Q100 18 182 78" stroke="url(#lg1)" stroke-width="13" stroke-linecap="round"/>
+        <path d="M42 98Q100 52 158 98" stroke="url(#lg1)" stroke-width="13" stroke-linecap="round"/>
+        <path d="M66 118Q100 90 134 118" stroke="url(#lg1)" stroke-width="13" stroke-linecap="round"/>
+        <path d="M45 128L100 170L156 128ZM96 150L96 235Q100 240 104 235L104 160ZM62 235Q100 242 138 235Q100 218 62 235Z" fill="white" fill-opacity=".93"/>
+        <circle cx="130" cy="137" r="6" fill="#00D9A3"/>
+      </svg>
     </div>
+    <div class="auth-title">BuzzedUp Owner Portal</div>
+    <div class="auth-sub">Sign in to manage your venue</div>
+    <div class="field"><label class="fl">Email</label><input class="fi" type="email" id="email-in" placeholder="you@example.com" autocomplete="email"/></div>
+    <div class="field"><label class="fl">Password</label><input class="fi" type="password" id="pw-in" placeholder="••••••••" autocomplete="current-password"/></div>
+    <div class="auth-err" id="login-err">Incorrect email or password.</div>
+    <button class="btn-p" id="login-btn">Sign In</button>
   </div>
+</div>
 
-  <div class="section">
-    <div class="section-number">03</div>
-    <h2>How We Use Your Data</h2>
-    <ul>
-      <li>To show live bar activity and vibes to other users</li>
-      <li>To enforce check-in rules (distance verification, cooldown timers)</li>
-      <li>To improve app performance and fix bugs</li>
-      <li>To display tonight's bar deals</li>
-    </ul>
-    <p style="margin-top:14px">We do not use your data for advertising. We do not sell your data to third parties. Ever.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-number">04</div>
-    <h2>Data Retention</h2>
-    <ul>
-      <li>Check-ins expire automatically after <strong style="color:#fff">2 hours</strong></li>
-      <li>Vibe reports expire after <strong style="color:#fff">2 hours</strong></li>
-      <li>Activity posts expire after <strong style="color:#fff">24 hours</strong></li>
-      <li>Anonymous user IDs are not permanently stored on our end</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <div class="section-number">05</div>
-    <h2>Third-Party Services</h2>
-    <p>BuzzedUp uses the following third-party services:</p>
-    <ul>
-      <li><strong style="color:#fff">Firebase (Google)</strong> — database, anonymous authentication, and crash analytics. <a href="https://firebase.google.com/support/privacy" style="color:var(--pink)">Firebase Privacy Policy</a></li>
-      <li><strong style="color:#fff">Expo</strong> — app build and delivery platform. <a href="https://expo.dev/privacy" style="color:var(--pink)">Expo Privacy Policy</a></li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <div class="section-number">06</div>
-    <h2>Age Requirement</h2>
-    <p>BuzzedUp is intended for users who are 21 years of age or older. By using this app, you confirm that you meet the legal drinking age requirement in your jurisdiction. We do not knowingly collect data from users under 21.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-number">07</div>
-    <h2>Your Rights</h2>
-    <p>Since we collect no personally identifying information, there is no personal profile to request, modify, or delete. Your anonymous session data expires automatically as described above.</p>
-    <p>If you have concerns about data associated with your device, contact us and we will address it promptly.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-number">08</div>
-    <h2>Changes to This Policy</h2>
-    <p>We may update this Privacy Policy as the app evolves. We will update the effective date at the top of this page. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-number">09</div>
-    <h2>Contact Us</h2>
-    <div class="contact-box">
-      <p style="color:var(--text-secondary); margin-bottom:10px; font-size:14px">Questions, concerns, or requests?</p>
-      <a href="mailto:privacy@buzzedup.app" class="contact-email">privacy@buzzedup.app</a>
+<!-- ── FORCE RESET ── -->
+<div class="auth-wrap" id="reset-screen" style="display:none;">
+  <div class="auth-card">
+    <div class="auth-mark" style="border-color:rgba(0,217,163,0.2);box-shadow:0 8px 28px rgba(0,217,163,.18);">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#00D9A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     </div>
+    <div class="auth-title">Set Your Password</div>
+    <div class="auth-sub">Set a permanent password to continue.</div>
+    <div class="field"><label class="fl">New Password</label><input class="fi" type="password" id="reset-pw" placeholder="Min. 8 characters" autocomplete="new-password"/>
+      <div class="pw-bar"><div class="pw-fill" id="pw-fill"></div></div>
+      <div class="pw-hint" id="pw-hint">Enter a password</div>
+    </div>
+    <div class="field"><label class="fl">Confirm Password</label><input class="fi" type="password" id="reset-cf" placeholder="Repeat your password" autocomplete="new-password"/></div>
+    <div class="auth-err" id="reset-err">Passwords do not match.</div>
+    <button class="btn-p btn-teal" id="reset-btn" disabled>Set Password and Continue</button>
   </div>
+</div>
 
-</main>
+<!-- ── APP ── -->
+<div id="app">
+  <div class="shell">
+    <nav class="sidebar">
+      <div class="sb-brand">
+        <div class="sb-logo">
+          <svg viewBox="20 10 160 225" width="18" height="21" fill="none">
+            <defs><linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FF3B81"/><stop offset="100%" stop-color="#ff6ba8"/></linearGradient></defs>
+            <path d="M18 78Q100 18 182 78" stroke="url(#lg2)" stroke-width="13" stroke-linecap="round"/>
+            <path d="M42 98Q100 52 158 98" stroke="url(#lg2)" stroke-width="13" stroke-linecap="round"/>
+            <path d="M66 118Q100 90 134 118" stroke="url(#lg2)" stroke-width="13" stroke-linecap="round"/>
+            <path d="M45 128L100 170L156 128ZM96 150L96 235Q100 240 104 235L104 160ZM62 235Q100 242 138 235Q100 218 62 235Z" fill="white" fill-opacity=".93"/>
+            <circle cx="130" cy="137" r="6" fill="#00D9A3"/>
+          </svg>
+        </div>
+        <div><div class="sb-wordmark">BuzzedUp</div><div class="sb-version">Owner Portal</div></div>
+      </div>
+      <div class="sb-nav">
+        <div class="sb-sec">Menu</div>
+        <div class="nv active" data-page="dashboard">
+          <span class="nv-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>Dashboard
+        </div>
+        <div class="nv" data-page="deals">
+          <span class="nv-icon"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>Deals & Events
+        </div>
+        <div class="nv" data-page="recurring">
+          <span class="nv-icon"><svg viewBox="0 0 24 24"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/><path d="M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg></span>Recurring Deals
+        </div>
+        <div class="nv" data-page="promotions">
+          <span class="nv-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>Promotions
+        </div>
+        <div class="nv" data-page="analytics">
+          <span class="nv-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>Analytics
+        </div>
+        <div class="nv" data-page="ai">
+          <span class="nv-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>AI Insights
+        </div>
+        <div class="sb-sec">Account</div>
+        <div class="nv" data-page="settings">
+          <span class="nv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Settings
+        </div>
+      </div>
+      <div class="sb-foot">
+        <div class="owner-chip">
+          <div class="owner-av" id="owner-av">?</div>
+          <div style="flex:1;min-width:0;">
+            <div class="owner-name" id="owner-name">—</div>
+            <div class="owner-role" id="owner-role">Bar Owner</div>
+          </div>
+          <button class="signout-btn" id="signout-btn" title="Sign out">
+            <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
 
-<footer>
-  © 2026 BuzzedUp LLC · All rights reserved
-</footer>
+    <div class="main">
 
+      <!-- ── DASHBOARD ── -->
+      <div class="page active" id="page-dashboard">
+        <div class="ph">
+          <div class="ph-row">
+            <div>
+              <div class="ph-title" id="dash-greeting">Good evening</div>
+              <div class="ph-sub">Here's what's happening on Court St right now.</div>
+            </div>
+            <div class="live-pill"><div class="live-dot"></div>Live</div>
+          </div>
+        </div>
+        <div class="bar-tabs" id="dash-tabs"></div>
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-accent" style="background:var(--pink);"></div><div class="stat-icon">🍻</div><div class="stat-lbl">Check-ins Tonight</div><div class="stat-val" id="s-checkins">—</div><div class="stat-meta" id="s-checkins-m">Loading…</div></div>
+          <div class="stat-card"><div class="stat-accent" style="background:var(--teal);"></div><div class="stat-icon">⚡</div><div class="stat-lbl">Current Vibe</div><div class="stat-val" id="s-vibe" style="font-size:18px;margin-top:4px;">—</div><div class="stat-meta" id="s-vibe-m">—</div></div>
+          <div class="stat-card"><div class="stat-accent" style="background:var(--gold);"></div><div class="stat-icon">🏷️</div><div class="stat-lbl">Active Deals</div><div class="stat-val" id="s-deals">—</div><div class="stat-meta" id="s-deals-m">Live right now</div></div>
+          <div class="stat-card"><div class="stat-accent" style="background:var(--purple);"></div><div class="stat-icon">📊</div><div class="stat-lbl">Tonight vs Average</div><div class="stat-val" id="s-z" style="font-size:22px;margin-top:4px;">—</div><div class="stat-meta" id="s-z-m">Z-score</div></div>
+        </div>
+        <div class="chart-grid">
+          <div class="card">
+            <div class="card-hd">Check-ins — Last 7 Days <span class="card-hd-r" id="dash-week-sub"></span></div>
+            <div class="ch"><canvas id="c-week"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-hd">Vibe Distribution <span class="card-hd-r">Last 30 days</span></div>
+            <div class="vibe-list" style="margin-top:4px;">
+              <div class="vibe-row"><div class="vibe-dot-sm" style="background:var(--pink);"></div><span class="vibe-lbl">Packed</span><div class="vibe-track"><div class="vibe-fill" id="vf-Packed" style="background:var(--pink);width:0%;"></div></div><span class="vibe-pct" id="vp-Packed">—</span></div>
+              <div class="vibe-row"><div class="vibe-dot-sm" style="background:#ff7eb3;"></div><span class="vibe-lbl">Busy</span><div class="vibe-track"><div class="vibe-fill" id="vf-Busy" style="background:#ff7eb3;width:0%;"></div></div><span class="vibe-pct" id="vp-Busy">—</span></div>
+              <div class="vibe-row"><div class="vibe-dot-sm" style="background:var(--teal);"></div><span class="vibe-lbl">Chill</span><div class="vibe-track"><div class="vibe-fill" id="vf-Chill" style="background:var(--teal);width:0%;"></div></div><span class="vibe-pct" id="vp-Chill">—</span></div>
+              <div class="vibe-row"><div class="vibe-dot-sm" style="background:rgba(255,255,255,.18);"></div><span class="vibe-lbl">Dead</span><div class="vibe-track"><div class="vibe-fill" id="vf-Dead" style="background:rgba(255,255,255,.18);width:0%;"></div></div><span class="vibe-pct" id="vp-Dead">—</span></div>
+              <div class="vibe-row"><div class="vibe-dot-sm" style="background:var(--purple);"></div><span class="vibe-lbl">Good Night</span><div class="vibe-track"><div class="vibe-fill" id="vf-GoodNight" style="background:var(--purple);width:0%;"></div></div><span class="vibe-pct" id="vp-GoodNight">—</span></div>
+              <div class="vibe-row"><div class="vibe-dot-sm" style="background:var(--gold);"></div><span class="vibe-lbl">Deals</span><div class="vibe-track"><div class="vibe-fill" id="vf-Deals" style="background:var(--gold);width:0%;"></div></div><span class="vibe-pct" id="vp-Deals">—</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── DEALS & EVENTS ── -->
+      <div class="page" id="page-deals">
+        <div class="ph">
+          <div class="ph-title">Deals & Events</div>
+          <div class="ph-sub">Update tonight's deals and featured event. Recurring deals auto-merge and are shown below — changes go live instantly.</div>
+        </div>
+        <div class="bar-tabs" id="deals-tabs"></div>
+        <div id="deals-container"></div>
+      </div>
+
+      <!-- ── RECURRING DEALS ── -->
+      <div class="page" id="page-recurring">
+        <div class="ph">
+          <div class="ph-row">
+            <div>
+              <div class="ph-title">Recurring Deals</div>
+              <div class="ph-sub">Set deals once — they auto-appear every week on the days you choose. Zero manual work required.</div>
+            </div>
+          </div>
+        </div>
+        <div class="bar-tabs" id="recurring-tabs"></div>
+        <div class="card">
+          <div class="card-hd">How it works</div>
+          <div style="display:flex;gap:24px;font-size:13px;color:var(--t2);line-height:1.65;">
+            <div style="flex:1;"><span style="color:var(--teal);font-weight:600;">① Set it once</span><br>Add a recurring deal with the days it runs. Saved permanently to Firebase.</div>
+            <div style="flex:1;"><span style="color:var(--pink);font-weight:600;">② Auto-activates daily</span><br>Every night at midnight the portal auto-merges today's recurring deals into the app. No clicks needed.</div>
+            <div style="flex:1;"><span style="color:var(--gold);font-weight:600;">③ Always editable</span><br>Update or remove recurring deals any time — changes apply immediately to the app.</div>
+          </div>
+        </div>
+        <div id="recurring-container"></div>
+      </div>
+
+      <!-- ── PROMOTIONS ── -->
+      <div class="page" id="page-promotions">
+        <div class="ph">
+          <div class="ph-row">
+            <div>
+              <div class="ph-title">Promotions</div>
+              <div class="ph-sub">Run in-app check-in promotions. Users see a redemption screen after checking in and tagging 2 vibes.</div>
+            </div>
+          </div>
+        </div>
+        <div id="promo-status-area"></div>
+        <div class="card">
+          <div class="card-hd">Launch a Promotion</div>
+          <div style="display:flex;flex-direction:column;gap:13px;">
+            <div class="settings-grid">
+              <div class="settings-field"><label class="fl">Venue</label><select class="fi fi-select" id="promo-bar-select"><option value="">Select venue…</option></select></div>
+              <div class="settings-field"><label class="fl">Redemption Limit</label><input class="fi" type="number" id="promo-limit" placeholder="100" min="1" max="500"/></div>
+            </div>
+            <div class="settings-field"><label class="fl">Promotion Title</label><input class="fi" type="text" id="promo-title" placeholder="e.g. First 100 Check-ins Get a Free Drink 🍺" maxlength="60"/></div>
+            <div class="settings-field"><label class="fl">Bartender Message</label><input class="fi" type="text" id="promo-message" placeholder="e.g. Show this screen for a free drink on us!" maxlength="80"/></div>
+            <div class="settings-field"><label class="fl">Expiry Date (optional)</label><input class="fi" type="date" id="promo-expiry" style="max-width:200px;"/></div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+              <button class="btn-save" style="max-width:180px;margin-top:0;" id="promo-launch-btn">🚀 Launch Promotion</button>
+              <button class="btn-danger" id="promo-stop-btn" style="display:none;">Stop Promotion</button>
+            </div>
+            <div class="last-saved" id="promo-saved-msg"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-hd">Redemption Log <span class="card-hd-r" id="promo-log-count"></span></div>
+          <div id="promo-log-body"><div class="empty" style="padding:28px;">No redemptions yet.</div></div>
+        </div>
+      </div>
+
+      <!-- ── ANALYTICS ── -->
+      <div class="page" id="page-analytics">
+        <div class="ph">
+          <div class="ph-row">
+            <div><div class="ph-title">Analytics</div><div class="ph-sub">Real-time check-in and vibe intelligence for your venue.</div></div>
+            <div class="live-pill"><div class="live-dot"></div>Live</div>
+          </div>
+        </div>
+        <div class="bar-tabs" id="analytics-tabs"></div>
+        <div class="kpi-strip" id="a-kpi-row"></div>
+        <div class="chart-grid">
+          <div class="card"><div class="card-hd">30-Day Check-ins <span class="card-hd-r" id="a-total"></span></div><div class="ch-lg"><canvas id="c-30d"></canvas></div></div>
+          <div class="card"><div class="card-hd">Vibe Distribution <span class="card-hd-r">all time</span></div><div class="ch-lg" style="display:flex;align-items:center;justify-content:center;"><canvas id="c-pie" style="max-width:190px;max-height:190px;"></canvas></div></div>
+        </div>
+        <div class="card"><div class="card-hd">Peak Hours Heatmap <span class="card-hd-r">check-ins by hour × day of week</span></div><div id="hmap-container" style="overflow-x:auto;"></div></div>
+        <div class="chart-grid">
+          <div class="card"><div class="card-hd">By Day of Week <span class="card-hd-r">30 days</span></div><div class="ch"><canvas id="c-dow"></canvas></div></div>
+          <div class="card"><div class="card-hd">By Hour <span class="card-hd-r">nightlife hours, 6pm – 3am</span></div><div class="ch"><canvas id="c-hourly"></canvas></div></div>
+        </div>
+      </div>
+
+      <!-- ── AI INSIGHTS ── -->
+      <div class="page" id="page-ai">
+        <div class="ph">
+          <div class="ph-title">AI Insights</div>
+          <div class="ph-sub">Claude-powered recommendations built from your real check-in and vibe data.</div>
+        </div>
+        <div class="bar-tabs" id="ai-tabs"></div>
+        <div class="ai-panel">
+          <div class="ai-hd"><span class="ai-badge">AI</span><div class="ai-title">Deal Recommendations</div></div>
+          <div class="ai-body" id="ai-deals"><div class="ai-hint">Generate deal recommendations based on your traffic patterns.</div></div>
+          <button class="btn-ai" id="ai-btn-deals">✦ Generate</button>
+        </div>
+        <div class="ai-panel">
+          <div class="ai-hd"><span class="ai-badge">AI</span><div class="ai-title">Inventory Forecast</div></div>
+          <div class="ai-body" id="ai-inv"><div class="ai-hint">Forecast inventory needs based on historical traffic.</div></div>
+          <button class="btn-ai" id="ai-btn-inv">✦ Generate Forecast</button>
+        </div>
+        <div class="ai-panel">
+          <div class="ai-hd"><span class="ai-badge">AI</span><div class="ai-title">Vibe Strategy</div></div>
+          <div class="ai-body" id="ai-vibe"><div class="ai-hint">Get strategies to improve your venue's atmosphere rating.</div></div>
+          <button class="btn-ai" id="ai-btn-vibe">✦ Analyze Vibes</button>
+        </div>
+      </div>
+
+      <!-- ── SETTINGS ── -->
+      <div class="page" id="page-settings">
+        <div class="ph">
+          <div class="ph-title">Settings</div>
+          <div class="ph-sub">Manage your account and venue access.</div>
+        </div>
+        <div class="card">
+          <div class="card-hd">Account</div>
+          <div class="settings-grid">
+            <div class="settings-field"><label class="fl">Display Name</label><input class="fi" type="text" id="set-name" placeholder="Your name"/></div>
+            <div class="settings-field"><label class="fl">Email</label><input class="fi" type="email" id="set-email" disabled/></div>
+          </div>
+          <button class="btn-save" style="max-width:130px;margin-top:14px;" id="save-profile">Save Profile</button>
+        </div>
+        <div class="card">
+          <div class="card-hd">Change Password</div>
+          <div class="settings-grid">
+            <div class="settings-field"><label class="fl">New Password</label><input class="fi" type="password" id="set-pw1" placeholder="••••••••"/></div>
+            <div class="settings-field"><label class="fl">Confirm</label><input class="fi" type="password" id="set-pw2" placeholder="••••••••"/></div>
+          </div>
+          <button class="btn-save" style="max-width:130px;margin-top:14px;" id="save-pw">Update</button>
+        </div>
+        <div class="request-card">
+          <div style="font-size:13px;font-weight:600;margin-bottom:4px;">Request Venue Access</div>
+          <div style="font-size:12px;color:var(--t2);margin-bottom:14px;line-height:1.55;">Own or manage another venue? Submit a request — the BuzzedUp team will review and approve it.</div>
+          <div id="pending-requests"></div>
+          <div style="display:flex;gap:8px;">
+            <select class="fi fi-select" id="req-bar-select" style="flex:1;"><option value="">Select a venue…</option></select>
+            <button class="btn-save" style="width:auto;padding:11px 18px;margin-top:0;" id="submit-request">Submit</button>
+          </div>
+        </div>
+        <div class="danger-zone">
+          <div class="danger-title">Sign Out</div>
+          <div class="danger-text">You'll need your email and password to sign back in.</div>
+          <button class="btn-danger" id="signout-btn-2">Sign Out</button>
+        </div>
+      </div>
+
+    </div><!-- /main -->
+  </div><!-- /shell -->
+</div><!-- /app -->
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import{initializeApp}from'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import{getFirestore,collection,getDocs,doc,setDoc,getDoc,onSnapshot,query,where}from'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+import{getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged,updatePassword}from'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+
+const FB={apiKey:"AIzaSyCoXky3mqqV49ecMQZ_VgEWjrDWBAoUGZc",authDomain:"buzzedup-v2.firebaseapp.com",projectId:"buzzedup-v2",storageBucket:"buzzedup-v2.firebasestorage.app",messagingSenderId:"476156872191",appId:"1:476156872191:web:961bfc271c7b5a194b13ca"};
+const fbApp=initializeApp(FB);
+const db=getFirestore(fbApp);
+const auth=getAuth(fbApp);
+
+const BAR_NAMES={
+  ci:"The C.I.",pub:"The Pub",jbar:"J Bar",pawpurrs:"Pawpurr's",
+  redbrick:"Red Brick Tavern",stephens:"Stephen's Bar & Grill",
+  tonys:"Tony's Front Room",union:"Union Bar & Grill",overhang:"Over Hang",
+  luckys:"Lucky's Taproom",courtside:"Courtside",catseye:"Cat's Eye",
+  crystal:"Crystal",sidedoor:"Side Door",broneys:"Broney's Alumni Grill",
+  northend:"North End Tavern",jackieos:"Jackie O's",
+  pigskin:"The Pigskin Bar & Grille",bobs:"Bob's Bar"
+};
+
+const VIBE_COLORS={Packed:'#FF3B81',Busy:'#ff7eb3',Chill:'#00D9A3',Dead:'rgba(255,255,255,0.18)',GoodNight:'#8B7FF5',Deals:'#F5A623'};
+const DAY_NAMES=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const EVENT_PH=['Trivia Night','Karaoke Night','Live DJ','Pool Tournament','Dart Night','Open Mic','Ladies Night','Happy Hour','Live Band','Beer Pong'];
+
+const EMOJI_CATS={
+  'Drinks':['🍺','🍻','🥂','🍷','🥃','🍸','🍹','🍾','🧉','🫗','🧃','🥤'],
+  'Food':['🍕','🍔','🌮','🌯','🍟','🥨','🧀','🍗','🥩','🍖','🌭','🥪'],
+  'Party':['🎉','🎊','🥳','🎈','🪩','🎶','🎵','🎤','🕺','💃','🪅','✨'],
+  'Money':['💰','💵','💸','🏷️','🎁','🤑','💳','🪙','🎟️','🔖','⚡','🔥'],
+  'Sports':['🏈','⚽','🏀','⚾','🎱','🎯','🎳','🏒','🎾','🏐','🥊','🏆'],
+};
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let currentUser=null,userBars=[],isAdmin=false,barsData={};
+let activeDB=null,activeDLS=null,activeAN=null,activeAI=null,activeRC=null;
+let charts={},unsubs=[],ciCache={},vbCache={};
+
+// ── UTILS ────────────────────────────────────────────────────────────────────
+const $=id=>document.getElementById(id);
+function toast(m,dur=2800){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),dur);}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function fmtTime(iso){if(!iso)return'';return new Date(iso).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});}
+function greet(n){const h=new Date().getHours();const g=h<12?'Good morning':h<17?'Good afternoon':'Good evening';return n?`${g}, ${n.split(' ')[0]}`:g;}
+function dc(id){if(charts[id]){charts[id].destroy();delete charts[id];}}
+function daysAgo(n){const d=new Date();d.setDate(d.getDate()-n);d.setHours(0,0,0,0);return d;}
+function todayMidnight(){const d=new Date();d.setHours(0,0,0,0);return d;}
+// 0=Mon…6=Sun (matches portal day-pill indices)
+function todayDOW(){const d=new Date().getDay();return d===0?6:d-1;}
+
+Chart.defaults.color='rgba(255,255,255,0.3)';
+Chart.defaults.font.family="'Inter',-apple-system,sans-serif";
+Chart.defaults.font.size=11;
+const GRID_COLOR='rgba(255,255,255,0.04)';
+const TIP={backgroundColor:'rgba(10,10,20,0.95)',titleColor:'rgba(255,255,255,0.5)',bodyColor:'#fff',borderColor:'rgba(255,255,255,0.08)',borderWidth:1,padding:10,cornerRadius:8,displayColors:false};
+const SCALE_Y={grid:{color:GRID_COLOR},border:{display:false},ticks:{maxTicksLimit:5,precision:0},beginAtZero:true,min:0};
+const SCALE_X={grid:{display:false},border:{display:false}};
+
+// ── DATA HELPERS ─────────────────────────────────────────────────────────────
+function getTs(raw){if(!raw)return new Date(0);if(raw.toDate)return raw.toDate();if(raw.seconds)return new Date(raw.seconds*1000);return new Date(raw);}
+
+async function fetchData(barId){
+  if(ciCache[barId]&&vbCache[barId])return;
+  const since=daysAgo(60);
+  const[ciSnap,vbSnap]=await Promise.all([
+    getDocs(query(collection(db,'checkInHistory'),where('barId','==',barId))),
+    getDocs(query(collection(db,'vibes'),where('barId','==',barId)))
+  ]);
+  const cis=[],vbs=[];
+  ciSnap.forEach(d=>{const ts=getTs(d.data().timestamp);if(ts>=since)cis.push({...d.data(),ts});});
+  vbSnap.forEach(d=>{const ts=getTs(d.data().timestamp);if(ts>=since)vbs.push({...d.data(),ts});});
+  ciCache[barId]=cis;vbCache[barId]=vbs;
+}
+
+function byDay(cis,n){const m={};for(let i=n-1;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);d.setHours(0,0,0,0);m[d.toISOString().slice(0,10)]=0;}cis.forEach(ci=>{const k=ci.ts.toISOString().slice(0,10);if(m[k]!==undefined)m[k]++;});return m;}
+function todayCount(cis){return cis.filter(ci=>ci.ts>=todayMidnight()).length;}
+function byDOW(cis){const d=[0,0,0,0,0,0,0];cis.forEach(ci=>{d[ci.ts.getDay()]++;});return[d[1],d[2],d[3],d[4],d[5],d[6],d[0]];}
+function byHour(cis){const h=new Array(24).fill(0);cis.forEach(ci=>{h[ci.ts.getHours()]++;});return h;}
+function vibeDist(vbs){
+  const c={Packed:0,Busy:0,Chill:0,Dead:0,GoodNight:0,Deals:0};
+  vbs.forEach(v=>{if(c[v.vibe]!==undefined)c[v.vibe]++;});
+  const total=Object.values(c).reduce((a,b)=>a+b,0)||1;
+  const pct={};Object.keys(c).forEach(k=>pct[k]=Math.round(c[k]/total*100));
+  return{c,pct,total:Object.values(c).reduce((a,b)=>a+b,0)};
+}
+function latestVibe(vbs){if(!vbs.length)return null;return vbs.reduce((a,b)=>a.ts>b.ts?a:b).vibe;}
+function stats(vals){
+  if(!vals.length)return{mean:0,stdev:0,median:0,min:0,max:0};
+  const n=vals.length,mean=vals.reduce((a,b)=>a+b,0)/n;
+  const stdev=Math.sqrt(vals.reduce((a,b)=>a+(b-mean)**2,0)/n);
+  const s=[...vals].sort((a,b)=>a-b);
+  const median=n%2?s[Math.floor(n/2)]:(s[n/2-1]+s[n/2])/2;
+  return{mean:Math.round(mean*10)/10,stdev:Math.round(stdev*10)/10,median,min:s[0],max:s[n-1]};
+}
+function zscore(val,mean,stdev){return stdev===0?0:Math.round(((val-mean)/stdev)*100)/100;}
+function seasonality(cis){
+  const totals=[0,0,0,0,0,0,0],counts=[0,0,0,0,0,0,0],dayMap={};
+  cis.forEach(ci=>{const k=ci.ts.toISOString().slice(0,10);const dow=ci.ts.getDay();if(!dayMap[k])dayMap[k]={dow,count:0};dayMap[k].count++;});
+  Object.values(dayMap).forEach(({dow,count})=>{totals[dow]+=count;counts[dow]++;});
+  const avg=totals.map((t,i)=>counts[i]>0?t/counts[i]:0);
+  const mean=avg.filter(x=>x>0).reduce((a,b)=>a+b,0)/(avg.filter(x=>x>0).length||1);
+  const idx=avg.map(a=>mean>0?Math.round((a/mean)*100)/100:1);
+  return[idx[1],idx[2],idx[3],idx[4],idx[5],idx[6],idx[0]];
+}
+
+// ── CORE: MERGE RECURRING INTO BARS DOC ──────────────────────────────────────
+// This is the single source-of-truth function. Called:
+//   1. On portal load (catches any missed midnight merges)
+//   2. Immediately when owner saves recurring deals
+//   3. On a client-side midnight timer for users who leave the portal open
+async function mergeRecurringIntoBar(barId){
+  try{
+    const recurSnap=await getDoc(doc(db,'recurringDeals',barId));
+    if(!recurSnap.exists())return;
+    const allRecurring=recurSnap.data().deals||[];
+    const todayIdx=todayDOW();
+    const todaysDeals=allRecurring.filter(d=>Array.isArray(d.days)&&d.days.includes(todayIdx));
+
+    const barSnap=await getDoc(doc(db,'bars',barId));
+    const currentDeals=barSnap.exists()?barSnap.data().deals||[]:[];
+
+    // Strip any stale recurring merges, keep only nightly deals
+    const nightlyOnly=currentDeals.filter(d=>!d.recurringMerged);
+
+    // Tag recurring deals so Deals & Events tab can filter them out of the editable list
+    const taggedRecurring=todaysDeals.map(({days,...rest})=>({...rest,recurringMerged:true}));
+
+    const merged=[...nightlyOnly,...taggedRecurring];
+
+    await setDoc(doc(db,'bars',barId),{
+      deals:merged,
+      dealsUpdatedAt:new Date().toISOString(),
+      recurringMergedAt:new Date().toISOString(),
+      recurringMergedDay:todayIdx
+    },{merge:true});
+
+    if(barsData[barId])barsData[barId].deals=merged;
+    return{merged:taggedRecurring.length,nightly:nightlyOnly.length};
+  }catch(e){
+    console.error('[BuzzedUp] mergeRecurringIntoBar failed for',barId,e);
+  }
+}
+
+// Run merge on all user bars on portal load (catches missed Cloud Function runs)
+async function runStartupMerge(bars){
+  for(const barId of bars){
+    await mergeRecurringIntoBar(barId);
+  }
+}
+
+// Schedule a re-merge at next midnight so portal users always stay current
+function scheduleMidnightMerge(bars){
+  const now=new Date();
+  const nextMidnight=new Date(now);
+  nextMidnight.setDate(now.getDate()+1);
+  nextMidnight.setHours(0,1,0,0); // 12:01am
+  const msUntilMidnight=nextMidnight-now;
+  setTimeout(async()=>{
+    console.log('[BuzzedUp] Client midnight merge firing…');
+    for(const barId of bars){await mergeRecurringIntoBar(barId);}
+    // Schedule again for the following midnight
+    scheduleMidnightMerge(bars);
+  },msUntilMidnight);
+  console.log(`[BuzzedUp] Next client merge in ${Math.round(msUntilMidnight/1000/60)} minutes`);
+}
+
+// ── EMOJI PICKER ─────────────────────────────────────────────────────────────
+function buildEmojiPicker(btn,onSelect){
+  let picker=btn.querySelector('.emoji-picker');
+  if(picker){picker.classList.toggle('open');return;}
+  picker=document.createElement('div');
+  picker.className='emoji-picker open';
+  let activeCat=Object.keys(EMOJI_CATS)[0];
+  function render(){
+    picker.innerHTML=`
+      <div class="emoji-cats">${Object.keys(EMOJI_CATS).map(c=>`<button class="emoji-cat${c===activeCat?' active':''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('')}</div>
+      <div class="emoji-grid">${EMOJI_CATS[activeCat].map(e=>`<div class="emoji-item" data-e="${e}">${e}</div>`).join('')}</div>
+    `;
+    picker.querySelectorAll('.emoji-cat').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();activeCat=b.dataset.cat;render();}));
+    picker.querySelectorAll('.emoji-item').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();onSelect(b.dataset.e);picker.classList.remove('open');}));
+  }
+  render();
+  btn.appendChild(picker);
+  setTimeout(()=>document.addEventListener('click',()=>picker.classList.remove('open'),{once:true}),0);
+}
+
+// ── AUTH ─────────────────────────────────────────────────────────────────────
+onAuthStateChanged(auth,async user=>{
+  if(user){
+    currentUser=user;
+    try{const od=await getDoc(doc(db,'Owners',user.uid));if(od.exists()&&od.data().mustResetPassword===true){showReset();return;}}catch(e){}
+    await initApp(user);
+  }else{showLogin();}
+});
+$('login-btn').addEventListener('click',doLogin);
+$('pw-in').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+$('email-in').addEventListener('keydown',e=>{if(e.key==='Enter')$('pw-in').focus();});
+async function doLogin(){
+  const email=$('email-in').value.trim(),pw=$('pw-in').value;
+  const err=$('login-err'),btn=$('login-btn');
+  err.style.display='none';btn.textContent='Signing in…';btn.disabled=true;
+  try{await signInWithEmailAndPassword(auth,email,pw);}
+  catch(e){err.style.display='block';btn.textContent='Sign In';btn.disabled=false;$('pw-in').value='';$('pw-in').focus();}
+}
+function doSignOut(){unsubs.forEach(u=>u());signOut(auth);}
+$('signout-btn').addEventListener('click',doSignOut);
+$('signout-btn-2').addEventListener('click',doSignOut);
+function showLogin(){$('login-screen').style.display='flex';$('reset-screen').style.display='none';$('app').style.display='none';$('login-btn').textContent='Sign In';$('login-btn').disabled=false;$('email-in').value='';$('pw-in').value='';}
+function showReset(){$('login-screen').style.display='none';$('app').style.display='none';$('reset-screen').style.display='flex';$('reset-pw').focus();}
+
+function pwStr(pw){
+  if(!pw)return{l:'Enter a password',c:'transparent',w:'0%'};
+  let s=0;if(pw.length>=8)s++;if(pw.length>=12)s++;if(/[A-Z]/.test(pw))s++;if(/[0-9]/.test(pw))s++;if(/[^A-Za-z0-9]/.test(pw))s++;
+  return[{l:'Too short',c:'#FF3B81',w:'15%'},{l:'Weak',c:'#ff7b4f',w:'35%'},{l:'Fair',c:'#F5A623',w:'55%'},{l:'Good',c:'#00D9A3',w:'78%'},{l:'Strong',c:'#00D9A3',w:'100%'}][Math.min(s,4)];
+}
+function valReset(){const pw=$('reset-pw').value,cf=$('reset-cf').value,s=pwStr(pw);$('pw-fill').style.width=s.w;$('pw-fill').style.background=s.c;$('pw-hint').textContent=s.l;$('pw-hint').style.color=pw?s.c:'var(--t3)';$('reset-btn').disabled=!(pw.length>=8&&pw===cf);$('reset-err').style.display=(cf&&pw!==cf)?'block':'none';}
+$('reset-pw').addEventListener('input',valReset);$('reset-cf').addEventListener('input',valReset);
+$('reset-cf').addEventListener('keydown',e=>{if(e.key==='Enter'&&!$('reset-btn').disabled)doReset();});
+$('reset-btn').addEventListener('click',doReset);
+async function doReset(){
+  const pw=$('reset-pw').value;if(pw.length<8)return;
+  $('reset-btn').disabled=true;$('reset-btn').textContent='Saving…';
+  try{
+    await updatePassword(currentUser,pw);
+    await setDoc(doc(db,'Owners',currentUser.uid),{mustResetPassword:false},{merge:true});
+    toast('Password set — welcome!');
+    $('reset-screen').style.display='none';$('reset-pw').value='';$('reset-cf').value='';
+    await initApp(currentUser);
+  }catch(e){
+    $('reset-err').style.display='block';$('reset-err').textContent='Failed — please sign in again.';
+    $('reset-btn').disabled=false;$('reset-btn').textContent='Set Password and Continue';
+  }
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+async function initApp(user){
+  $('login-screen').style.display='none';$('reset-screen').style.display='none';$('app').style.display='block';
+  let name=user.displayName||user.email.split('@')[0];let bars=[];isAdmin=false;
+  try{
+    const od=await getDoc(doc(db,'Owners',user.uid));
+    if(od.exists()){const d=od.data();name=d.name||name;bars=d.bars||[];isAdmin=d.isAdmin===true;}
+  }catch(e){bars=Object.keys(BAR_NAMES);}
+  userBars=isAdmin?Object.keys(BAR_NAMES):(bars.length?bars:[]);
+  const initials=name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+  $('owner-av').textContent=initials;$('owner-name').textContent=name;
+  $('owner-role').textContent=isAdmin?'Admin':'Bar Owner';
+  $('dash-greeting').textContent=greet(name);$('set-name').value=name;$('set-email').value=user.email;
+  await loadBarMeta();
+  populateRequestSelect();
+  populatePromoBarSelect();
+  if(userBars.length){
+    activeDB=activeDLS=activeAN=activeAI=activeRC=userBars[0];
+    buildTabs();
+    startLive();
+    await fetchData(userBars[0]);
+    renderDash();
+    renderDeals();
+    loadPendingRequests();
+    // ── KEY: run recurring merge on login so app is always current ──
+    await runStartupMerge(userBars);
+    // Schedule client-side midnight merge for long-open sessions
+    scheduleMidnightMerge(userBars);
+  }else{
+    $('page-dashboard').innerHTML=`<div class="ph"><div class="ph-title">Welcome to BuzzedUp</div><div class="ph-sub">Your account is set up. The BuzzedUp team will assign your venue shortly.</div></div>`;
+    loadPendingRequests();
+  }
+}
+
+async function loadBarMeta(){
+  try{const s=await getDocs(collection(db,'bars'));s.forEach(d=>{barsData[d.id]=d.data();});}catch(e){}
+}
+
+// ── LIVE LISTENERS ────────────────────────────────────────────────────────────
+function startLive(){
+  userBars.forEach(barId=>{
+    const u=onSnapshot(doc(db,'bars',barId),snap=>{
+      if(snap.exists()){barsData[barId]=snap.data();if(barId===activeDB)renderDashMeta();}
+    });
+    unsubs.push(u);
+  });
+  userBars.forEach(barId=>{
+    const u=onSnapshot(query(collection(db,'checkInHistory'),where('barId','==',barId)),snap=>{
+      const updated=[];
+      snap.forEach(d=>{const ts=getTs(d.data().timestamp);updated.push({...d.data(),ts});});
+      ciCache[barId]=updated.filter(ci=>ci.ts>=daysAgo(60));
+      if(barId===activeDB)renderDashMeta();
+    });
+    unsubs.push(u);
+  });
+}
+
+// ── NAV ──────────────────────────────────────────────────────────────────────
+document.querySelectorAll('.nv[data-page]').forEach(item=>{
+  item.addEventListener('click',async()=>{
+    document.querySelectorAll('.nv').forEach(n=>n.classList.remove('active'));
+    item.classList.add('active');
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    const page=item.dataset.page;
+    document.getElementById('page-'+page)?.classList.add('active');
+    if(page==='analytics'){await fetchData(activeAN);renderAnalytics();}
+    if(page==='recurring'){renderRecurring();}
+    if(page==='deals'){renderDeals();}
+    if(page==='promotions'){populatePromoBarSelect();loadPromoStatus();if(userBars[0])loadPromoLog(userBars[0]);}
+    if(page==='settings'){loadPendingRequests();}
+  });
+});
+
+// ── TABS ──────────────────────────────────────────────────────────────────────
+function buildTabs(){
+  const cfgs=[
+    {id:'dash-tabs',setA:async b=>{activeDB=b;await fetchData(b);renderDash();}},
+    {id:'deals-tabs',setA:b=>{activeDLS=b;renderDeals();}},
+    {id:'recurring-tabs',setA:b=>{activeRC=b;renderRecurring();}},
+    {id:'analytics-tabs',setA:async b=>{activeAN=b;await fetchData(b);renderAnalytics();}},
+    {id:'ai-tabs',setA:async b=>{activeAI=b;await fetchData(b);}},
+  ];
+  cfgs.forEach(cfg=>{
+    const wrap=$(cfg.id);if(!wrap)return;
+    if(userBars.length<=1){wrap.style.display='none';return;}
+    wrap.innerHTML='';
+    userBars.forEach((barId,i)=>{
+      const btn=document.createElement('button');
+      btn.className='btab'+(i===0?' active':'');
+      btn.textContent=BAR_NAMES[barId]||barId;
+      btn.addEventListener('click',()=>{
+        wrap.querySelectorAll('.btab').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');cfg.setA(barId);
+      });
+      wrap.appendChild(btn);
+    });
+  });
+}
+
+// ── DASHBOARD ────────────────────────────────────────────────────────────────
+function renderDash(){renderDashMeta();renderDashCharts();}
+function renderDashMeta(){
+  const cis=ciCache[activeDB]||[],vbs=vbCache[activeDB]||[];
+  const allDeals=(barsData[activeDB]||{}).deals||[];
+  const tonight=todayCount(cis);
+  $('s-checkins').textContent=tonight;
+  $('s-deals').textContent=allDeals.length;
+
+  // Show breakdown of nightly vs recurring on the deals stat card
+  const recurringCount=allDeals.filter(d=>d.recurringMerged).length;
+  const nightlyCount=allDeals.filter(d=>!d.recurringMerged).length;
+  const dm=$('s-deals-m');
+  if(dm){
+    if(recurringCount>0&&nightlyCount>0)dm.textContent=`${nightlyCount} nightly · ${recurringCount} recurring`;
+    else if(recurringCount>0)dm.textContent=`${recurringCount} recurring (auto)`;
+    else dm.textContent='Live right now';
+  }
+
+  const map=byDay(cis,31),vals=Object.values(map).slice(0,-1);
+  const s=stats(vals),z=zscore(tonight,s.mean,s.stdev);
+  $('s-z').textContent=(z>=0?'+':'')+z+'σ';
+  const zm=$('s-z-m');
+  zm.textContent=Math.abs(z)<0.5?'About average':z>1.5?'Way above average':z>0.5?'Above average':z<-1.5?'Well below average':'Below average';
+  const cm=$('s-checkins-m');
+  if(s.mean>0){const diff=Math.round(((tonight-s.mean)/s.mean)*100);cm.textContent=(diff>=0?'↑ ':'↓ ')+Math.abs(diff)+'% vs 30d avg';cm.className='stat-meta '+(diff>=0?'up':'dn');}
+  else{cm.textContent='Building baseline data';cm.className='stat-meta';}
+  const lv=latestVibe(vbs);$('s-vibe').textContent=lv||'No reports yet';$('s-vibe-m').textContent=lv?'Most recent report':'Check back tonight';
+  const dist=vibeDist(vbs.filter(v=>v.ts>=daysAgo(30)));
+  Object.keys(dist.pct).forEach(k=>{
+    const f=document.getElementById('vf-'+k),p=document.getElementById('vp-'+k);
+    if(f)f.style.width=dist.pct[k]+'%';
+    if(p)p.textContent=dist.total>0?dist.pct[k]+'%':'—';
+  });
+}
+function renderDashCharts(){
+  const cis=ciCache[activeDB]||[];
+  const map=byDay(cis,7);
+  const labels=Object.keys(map).map(k=>{const d=new Date(k+'T12:00:00');return DAY_NAMES[d.getDay()===0?6:d.getDay()-1];});
+  const vals=Object.values(map);
+  const total=vals.reduce((a,b)=>a+b,0);
+  const avg=(total/7).toFixed(1);
+  const sub=$('dash-week-sub');if(sub)sub.textContent=total+' total · '+avg+'/day avg';
+  dc('week');const ctx=$('c-week');
+  if(ctx){
+    const mx=Math.max(...vals,1);
+    charts['week']=new Chart(ctx,{
+      type:'bar',
+      data:{labels,datasets:[{data:vals,backgroundColor:vals.map((v,i)=>i===vals.length-1?'rgba(255,59,129,0.85)':v===0?'rgba(255,255,255,0.04)':`rgba(255,59,129,${Math.max(0.18,v/mx*0.6)})`),borderRadius:6,borderSkipped:false}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label:c=>`${c.parsed.y} check-ins`}}},scales:{x:SCALE_X,y:SCALE_Y}}
+    });
+  }
+}
+
+// ── DEALS & EVENTS ───────────────────────────────────────────────────────────
+// Only shows nightly (non-recurring) deals in the editor.
+// Recurring deals are shown read-only below the editor so owners can see what auto-merged.
+function renderDeals(){
+  const con=$('deals-container');con.innerHTML='';
+  const barId=activeDLS,data=barsData[barId]||{};
+  const allDeals=data.deals||[];
+  // Separate nightly from recurring
+  const nightlyDeals=allDeals.filter(d=>!d.recurringMerged);
+  const recurringDeals=allDeals.filter(d=>d.recurringMerged);
+  const feat=data.featuredEvent||'',upd=data.dealsUpdatedAt;
+  const ph=EVENT_PH[Math.floor(Math.random()*EVENT_PH.length)];
+  const wrap=document.createElement('div');wrap.className='card';
+
+  let recurringPreviewHTML='';
+  if(recurringDeals.length){
+    recurringPreviewHTML=`
+      <div class="section-label" style="margin-top:22px;">Auto-Merged Recurring Deals <span style="color:var(--teal);font-size:10px;font-weight:700;background:var(--teal-d);border:1px solid var(--teal-b);border-radius:4px;padding:2px 7px;margin-left:6px;text-transform:uppercase;">Active Today</span></div>
+      <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:6px;">
+        ${recurringDeals.map(d=>`
+          <div style="display:flex;align-items:center;gap:9px;background:var(--s2);border:1px solid var(--teal-b);border-radius:var(--rsm);padding:9px 13px;opacity:.85;">
+            <span style="font-size:18px;">${esc(d.emoji||'🍺')}</span>
+            <span style="flex:1;font-size:13px;color:var(--t1);">${esc(d.text)}</span>
+            ${d.time?`<span style="font-size:11px;color:var(--t2);">${esc(d.time)}</span>`:''}
+            <span style="font-size:10px;color:var(--teal);font-weight:600;">AUTO</span>
+          </div>`).join('')}
+      </div>
+      <div style="font-size:11px;color:var(--t3);margin-bottom:4px;">These deals are managed in <strong style="color:var(--t2);">Recurring Deals</strong> and merge automatically every day.</div>
+    `;
+  }
+
+  wrap.innerHTML=`
+    <div class="card-hd">
+      <span style="font-weight:700;font-size:15px;">${esc(BAR_NAMES[barId]||barId)}</span>
+      <div class="live-pill" style="font-size:10px;padding:4px 10px;"><div class="live-dot"></div>Connected</div>
+    </div>
+    <div class="section-label">Featured Event</div>
+    <div class="event-wrap"><input class="event-input" type="text" value="${esc(feat)}" placeholder="${esc(ph)}" maxlength="40"/><button class="icon-btn clr-btn" title="Clear">✕</button></div>
+    <div class="section-label">Tonight's Deals <span style="font-size:10px;color:var(--t3);font-weight:400;text-transform:none;letter-spacing:0;">(nightly only — edit here)</span></div>
+    <div class="deal-list" id="deal-list-${barId}"></div>
+    <button class="btn-dashed add-btn">+ Add deal</button>
+    <button class="btn-save sv-btn">Save Changes</button>
+    <div class="last-saved">${upd?'Last saved at '+fmtTime(upd):''}</div>
+    ${recurringPreviewHTML}
+  `;
+
+  const dl=wrap.querySelector('.deal-list');
+  nightlyDeals.forEach(d=>dl.appendChild(makeDealRow(d)));
+  wrap.querySelector('.clr-btn').addEventListener('click',()=>{wrap.querySelector('.event-input').value='';});
+  wrap.querySelector('.add-btn').addEventListener('click',()=>dl.appendChild(makeDealRow()));
+  wrap.querySelector('.sv-btn').addEventListener('click',async()=>{
+    const btn=wrap.querySelector('.sv-btn');btn.disabled=true;btn.textContent='Saving…';
+    const nd=[];
+    wrap.querySelectorAll('.deal-row').forEach(r=>{
+      const e=r.querySelector('.di-emoji-btn').dataset.emoji||'';
+      const t=r.querySelector('.di-t').value.trim();
+      const h=r.querySelector('.di-h').value.trim();
+      if(t)nd.push({emoji:e,text:t,time:h});
+    });
+    const ne=wrap.querySelector('.event-input').value.trim();
+    try{
+      // Re-fetch today's recurring deals and merge them alongside the new nightly set
+      const recurSnap=await getDoc(doc(db,'recurringDeals',barId));
+      const allRecurring=recurSnap.exists()?recurSnap.data().deals||[]:[];
+      const todayIdx=todayDOW();
+      const todaysRecurring=allRecurring.filter(d=>Array.isArray(d.days)&&d.days.includes(todayIdx));
+      const taggedRecurring=todaysRecurring.map(({days,...rest})=>({...rest,recurringMerged:true}));
+      const merged=[...nd,...taggedRecurring];
+
+      await setDoc(doc(db,'bars',barId),{
+        deals:merged,
+        featuredEvent:ne,
+        dealsUpdatedAt:new Date().toISOString(),
+        recurringMergedAt:new Date().toISOString(),
+        recurringMergedDay:todayIdx
+      },{merge:true});
+
+      barsData[barId]={...barsData[barId],deals:merged,featuredEvent:ne,dealsUpdatedAt:new Date().toISOString()};
+      wrap.querySelector('.last-saved').textContent='Saved at '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+      toast('Saved — '+(BAR_NAMES[barId]||barId));
+      // Re-render to show updated recurring preview
+      renderDeals();
+    }catch(e){toast('Save failed');}
+    btn.disabled=false;btn.textContent='Save Changes';
+  });
+  con.appendChild(wrap);
+}
+
+function makeDealRow(deal={}){
+  const r=document.createElement('div');r.className='deal-row';
+  const emoji=deal.emoji||'🍺';
+  r.innerHTML=`
+    <div class="di-emoji-btn" data-emoji="${esc(emoji)}" title="Pick emoji" style="position:relative;">${emoji}</div>
+    <input class="di-t" type="text" value="${esc(deal.text||'')}" placeholder="e.g. $4 drafts all night"/>
+    <input class="di-h" type="text" value="${esc(deal.time||'')}" placeholder="9pm – close"/>
+    <button class="icon-btn rm-btn" title="Remove">✕</button>
+  `;
+  const emojiBtn=r.querySelector('.di-emoji-btn');
+  emojiBtn.addEventListener('click',e=>{e.stopPropagation();buildEmojiPicker(emojiBtn,(em)=>{emojiBtn.textContent=em;emojiBtn.dataset.emoji=em;});});
+  r.querySelector('.rm-btn').addEventListener('click',()=>r.remove());
+  return r;
+}
+
+// ── RECURRING DEALS ───────────────────────────────────────────────────────────
+async function renderRecurring(){
+  const barId=activeRC;
+  const con=$('recurring-container');
+  con.innerHTML='<div class="empty" style="padding:20px;">Loading…</div>';
+
+  let existingDeals=[];
+  let lastMergedAt=null;
+  let lastMergedDay=null;
+  try{
+    const snap=await getDoc(doc(db,'recurringDeals',barId));
+    if(snap.exists())existingDeals=snap.data().deals||[];
+    const barSnap=await getDoc(doc(db,'bars',barId));
+    if(barSnap.exists()){lastMergedAt=barSnap.data().recurringMergedAt||null;lastMergedDay=barSnap.data().recurringMergedDay;}
+  }catch(e){}
+
+  const todayIdx=todayDOW();
+  const todaysActive=existingDeals.filter(d=>Array.isArray(d.days)&&d.days.includes(todayIdx));
+  const isMergedToday=lastMergedDay===todayIdx;
+
+  const wrap=document.createElement('div');
+
+  // Status banner
+  let bannerHTML='';
+  if(isMergedToday&&todaysActive.length){
+    bannerHTML=`<div class="recur-status-banner ok">✓ ${todaysActive.length} recurring deal${todaysActive.length>1?'s':''} auto-merged into the app today · Last synced ${fmtTime(lastMergedAt)}</div>`;
+  }else if(todaysActive.length&&!isMergedToday){
+    bannerHTML=`<div class="recur-status-banner warn">⚠ ${todaysActive.length} recurring deal${todaysActive.length>1?'s':''} scheduled for today — merging now…</div>`;
+    // Trigger the merge immediately
+    mergeRecurringIntoBar(barId).then(()=>{renderRecurring();});
+  }else if(!existingDeals.length){
+    bannerHTML=`<div class="recur-status-banner warn">No recurring deals set yet. Add one below and save.</div>`;
+  }else{
+    bannerHTML=`<div class="recur-status-banner ok">✓ Recurring deals saved — will auto-merge on their scheduled days.</div>`;
+  }
+
+  wrap.innerHTML=`
+    ${bannerHTML}
+    <div class="card">
+      <div class="card-hd">
+        <span style="font-weight:700;font-size:15px;">${esc(BAR_NAMES[barId]||barId)}</span>
+        <span class="recur-badge">🔁 Auto-Recurring</span>
+      </div>
+      <div style="font-size:12px;color:var(--t2);margin-bottom:16px;line-height:1.6;">
+        Deals below automatically appear in the app on their scheduled days. They merge with nightly deals every day — no manual action needed.
+      </div>
+      <div class="deal-list" id="recur-list"></div>
+      <button class="btn-dashed" id="recur-add-btn">+ Add recurring deal</button>
+      <button class="btn-save" id="recur-save-btn">Save Recurring Deals</button>
+      <div class="last-saved" id="recur-saved"></div>
+    </div>
+  `;
+  con.innerHTML='';con.appendChild(wrap);
+
+  const list=$('recur-list');
+  existingDeals.forEach(d=>list.appendChild(makeRecurRow(d)));
+  $('recur-add-btn').addEventListener('click',()=>list.appendChild(makeRecurRow()));
+
+  $('recur-save-btn').addEventListener('click',async()=>{
+    const btn=$('recur-save-btn');btn.disabled=true;btn.textContent='Saving…';
+    const nd=[];
+    document.querySelectorAll('.recur-row').forEach(r=>{
+      const emoji=r.querySelector('.di-emoji-btn').dataset.emoji||'';
+      const text=r.querySelector('.di-t').value.trim();
+      const time=r.querySelector('.di-h').value.trim();
+      const days=[...r.querySelectorAll('.day-pill.active')].map(p=>parseInt(p.dataset.day));
+      if(text&&days.length)nd.push({emoji,text,time,days});
+    });
+    try{
+      // 1. Save to recurringDeals collection
+      await setDoc(doc(db,'recurringDeals',barId),{deals:nd,updatedAt:new Date().toISOString()});
+
+      // 2. Immediately merge today's applicable recurring deals into bars doc
+      const result=await mergeRecurringIntoBar(barId);
+
+      const mergedCount=result?result.merged:0;
+      toast(`Recurring deals saved for ${BAR_NAMES[barId]||barId} — ${mergedCount} active today`);
+      $('recur-saved').textContent='Saved at '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+
+      // Re-render to update the status banner
+      setTimeout(()=>renderRecurring(),300);
+    }catch(e){console.error(e);toast('Save failed');}
+    btn.disabled=false;btn.textContent='Save Recurring Deals';
+  });
+}
+
+function makeRecurRow(deal={}){
+  const r=document.createElement('div');r.className='recur-row';
+  const emoji=deal.emoji||'🍺';
+  const activeDays=deal.days||[];
+  r.innerHTML=`
+    <div class="recur-main">
+      <div class="recur-top">
+        <div class="di-emoji-btn" data-emoji="${esc(emoji)}" title="Pick emoji" style="position:relative;">${emoji}</div>
+        <input class="di-t" type="text" value="${esc(deal.text||'')}" placeholder="e.g. Trivia Night — $3 beers" style="flex:1;"/>
+        <input class="di-h" type="text" value="${esc(deal.time||'')}" placeholder="8pm – 10pm" style="width:110px;"/>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:4px;">
+        <span style="font-size:11px;color:var(--t2);flex-shrink:0;">Runs on:</span>
+        <div class="day-pills">
+          ${DAY_NAMES.map((d,i)=>`<button class="day-pill${activeDays.includes(i)?' active':''}" data-day="${i}">${d}</button>`).join('')}
+        </div>
+      </div>
+    </div>
+    <button class="icon-btn rm-btn" style="align-self:flex-start;margin-top:2px;" title="Remove">✕</button>
+  `;
+  const emojiBtn=r.querySelector('.di-emoji-btn');
+  emojiBtn.addEventListener('click',e=>{e.stopPropagation();buildEmojiPicker(emojiBtn,(em)=>{emojiBtn.textContent=em;emojiBtn.dataset.emoji=em;});});
+  r.querySelectorAll('.day-pill').forEach(btn=>btn.addEventListener('click',()=>btn.classList.toggle('active')));
+  r.querySelector('.rm-btn').addEventListener('click',()=>r.remove());
+  return r;
+}
+
+// ── ANALYTICS ────────────────────────────────────────────────────────────────
+async function renderAnalytics(){
+  const barId=activeAN,cis=ciCache[barId]||[],vbs=vbCache[barId]||[];
+  const cis30=cis.filter(ci=>ci.ts>=daysAgo(30));
+  const cis7=cis.filter(ci=>ci.ts>=daysAgo(7));
+  const tot=cis30.length;
+  const al=$('a-total');if(al)al.textContent=tot+' check-ins';
+  const kpiWrap=$('a-kpi-row');
+  if(kpiWrap){
+    const todayN=todayCount(cis);
+    const map30=byDay(cis,30);
+    const s30=stats(Object.values(map30));
+    const dist=vibeDist(vbs.filter(v=>v.ts>=daysAgo(7)));
+    const topVibe=Object.entries(dist.c).sort((a,b)=>b[1]-a[1]).find(([,v])=>v>0);
+    kpiWrap.innerHTML=`
+      <div class="kpi-card"><div class="kpi-val" style="color:var(--pink);">${todayN}</div><div class="kpi-lbl">Tonight</div></div>
+      <div class="kpi-card"><div class="kpi-val" style="color:var(--teal);">${cis7.length}</div><div class="kpi-lbl">This Week</div></div>
+      <div class="kpi-card"><div class="kpi-val" style="color:var(--gold);">${tot}</div><div class="kpi-lbl">30 Days</div></div>
+      <div class="kpi-card"><div class="kpi-val" style="color:var(--purple);">${s30.mean}</div><div class="kpi-lbl">Avg / Night</div></div>
+      <div class="kpi-card"><div class="kpi-val" style="font-size:20px;color:var(--t1);">${topVibe?topVibe[0]:'—'}</div><div class="kpi-lbl">Top Vibe (7d)</div></div>
+    `;
+  }
+  const map30=byDay(cis,30);
+  const dlabels=Object.keys(map30).map(k=>{const d=new Date(k+'T12:00:00');return(d.getMonth()+1)+'/'+(d.getDate());});
+  const dvals=Object.values(map30);
+  dc('30d');const ctx30=$('c-30d');
+  if(ctx30){charts['30d']=new Chart(ctx30,{type:'line',data:{labels:dlabels,datasets:[{data:dvals,borderColor:'#FF3B81',backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,220);g.addColorStop(0,'rgba(255,59,129,0.18)');g.addColorStop(1,'rgba(255,59,129,0)');return g;},borderWidth:2,pointRadius:0,pointHoverRadius:4,pointHoverBackgroundColor:'#FF3B81',fill:true,tension:0.4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label:c=>`${c.parsed.y} check-ins`}}},scales:{x:{...SCALE_X,ticks:{maxTicksLimit:9}},y:SCALE_Y}}});}
+  const dist=vibeDist(vbs);
+  const pieLbls=Object.keys(dist.c).filter(k=>dist.c[k]>0);
+  const pieData=pieLbls.map(k=>dist.c[k]);
+  const pieColors=pieLbls.map(k=>VIBE_COLORS[k]||'#888');
+  dc('pie');const ctxP=$('c-pie');
+  if(ctxP){
+    if(pieData.length){charts['pie']=new Chart(ctxP,{type:'doughnut',data:{labels:pieLbls,datasets:[{data:pieData,backgroundColor:pieColors,borderWidth:2,borderColor:'#0e0e1a',hoverOffset:5}]},options:{responsive:true,maintainAspectRatio:true,cutout:'66%',plugins:{legend:{position:'bottom',labels:{padding:14,boxWidth:9,font:{size:11},color:'rgba(255,255,255,0.5)'}},tooltip:{...TIP,callbacks:{label:c=>`${c.label}: ${c.parsed} reports`}}}}});}
+    else{const p=ctxP.closest('.ch-lg');if(p)p.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:13px;color:rgba(255,255,255,0.2);">No vibe data yet</div>';}
+  }
+  const dowV=byDOW(cis30);const dowMax=Math.max(...dowV,1);
+  dc('dow');const ctxDow=$('c-dow');
+  if(ctxDow){charts['dow']=new Chart(ctxDow,{type:'bar',data:{labels:DAY_NAMES,datasets:[{data:dowV,backgroundColor:dowV.map((v)=>{const isPeak=v===dowMax&&v>0;return isPeak?'rgba(255,59,129,0.85)':v===0?'rgba(255,255,255,0.04)':`rgba(255,59,129,${Math.max(0.15,v/dowMax*0.55)})`;}),borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label:c=>`${c.parsed.y} check-ins`}}},scales:{x:SCALE_X,y:SCALE_Y}}});}
+  const hrAll=byHour(cis30);
+  const nightH=[18,19,20,21,22,23,0,1,2,3];
+  const nightL=['6pm','7pm','8pm','9pm','10pm','11pm','12am','1am','2am','3am'];
+  const nightV=nightH.map(h=>hrAll[h]);
+  const nightMax=Math.max(...nightV,1);
+  dc('hrly');const ctxH=$('c-hourly');
+  if(ctxH){charts['hrly']=new Chart(ctxH,{type:'bar',data:{labels:nightL,datasets:[{data:nightV,backgroundColor:nightV.map(v=>{const isPeak=v===nightMax&&v>0;return isPeak?'rgba(0,217,163,0.85)':v===0?'rgba(255,255,255,0.04)':`rgba(0,217,163,${Math.max(0.15,v/nightMax*0.6)})`;return'rgba(0,217,163,0.3)';}),borderRadius:5,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label:c=>`${c.parsed.y} check-ins`}}},scales:{x:SCALE_X,y:SCALE_Y}}});}
+  buildHeatmap(cis);
+}
+
+function buildHeatmap(cis){
+  const con=$('hmap-container');if(!con)return;
+  const hours=[18,19,20,21,22,23,0,1];
+  const hrL=['6pm','7pm','8pm','9pm','10pm','11pm','12am','1am'];
+  const mat=hours.map(()=>DAY_NAMES.map(()=>0));
+  cis.forEach(ci=>{const h=ci.ts.getHours(),hi=hours.indexOf(h);if(hi<0)return;const dow=ci.ts.getDay(),di=dow===0?6:dow-1;mat[hi][di]++;});
+  const mx=Math.max(...mat.flat(),1);
+  let html='<div class="hmap" style="margin-top:8px;"><div></div>';
+  DAY_NAMES.forEach(d=>html+=`<div class="hmap-day">${d}</div>`);
+  hours.forEach((_,hi)=>{
+    html+=`<div class="hmap-hr">${hrL[hi]}</div>`;
+    DAY_NAMES.forEach((_,di)=>{
+      const v=mat[hi][di];
+      const a=v===0?0.03:((v/mx)*0.75+0.08).toFixed(2);
+      html+=`<div class="hmap-cell" style="background:rgba(255,59,129,${a});" title="${v} check-ins"></div>`;
+    });
+  });
+  html+='</div>';con.innerHTML=html;
+}
+
+// ── AI ────────────────────────────────────────────────────────────────────────
+async function runAI(type,targetId,btnId){
+  const barId=activeAI,cis=ciCache[barId]||[],vbs=vbCache[barId]||[];
+  const barName=BAR_NAMES[barId]||barId;
+  const deals=((barsData[barId]||{}).deals||[]).map(d=>d.text).join(', ')||'none';
+  const s=stats(Object.values(byDay(cis,30)));
+  const dist=vibeDist(vbs);const si=seasonality(cis);
+  const peakDay=DAY_NAMES[si.indexOf(Math.max(...si))];
+  const btn=$(btnId),tgt=$(targetId);
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Analyzing…';
+  tgt.innerHTML='<div class="ai-hint">Generating from your real data…</div>';
+  const prompts={
+    deals:`Nightlife advisor for ${barName}, Athens OH college bar. Avg check-ins: ${s.mean}, stdev: ${s.stdev}, peak night: ${peakDay}, tonight: ${todayCount(cis)}. Vibe distribution: ${JSON.stringify(dist.pct)}. Current deals: ${deals}. Give 3 deal recommendations. JSON only: [{"title":"","reason":"","timing":""}]`,
+    inv:`Inventory advisor for ${barName}, Athens OH. Avg ${s.mean} check-ins/night, stdev ${s.stdev}, peak: ${peakDay}. Packed rate: ${dist.pct.Packed||0}%. Give 3 inventory recommendations for next week. JSON only: [{"item":"","recommendation":"","quantity":""}]`,
+    vibe:`Vibe consultant for ${barName}, Athens OH. Vibe data (30d): ${JSON.stringify(dist.pct)}. Total reports: ${dist.total}. Peak night: ${peakDay}. Give 3 strategies to increase Packed and Busy ratings. JSON only: [{"strategy":"","action":"","expectedImpact":""}]`
+  };
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompts[type]}]})});
+    const data=await res.json();
+    const text=(data.content?.[0]?.text||'[]').replace(/```json|```/g,'').trim();
+    const items=JSON.parse(text);
+    let html='';
+    items.forEach(s=>{
+      if(type==='deals')html+=`<div class="ai-item"><strong>${esc(s.title)}</strong> — ${esc(s.reason)} <span class="tag">${esc(s.timing)}</span></div>`;
+      else if(type==='inv')html+=`<div class="ai-item"><strong>${esc(s.item)}</strong> — ${esc(s.recommendation)} <span class="tag">${esc(s.quantity)}</span></div>`;
+      else html+=`<div class="ai-item"><strong>${esc(s.strategy)}</strong> — ${esc(s.action)} <span class="tag">${esc(s.expectedImpact)}</span></div>`;
+    });
+    tgt.innerHTML=html;
+  }catch(e){tgt.innerHTML='<div class="ai-hint" style="color:var(--pink)">Failed to generate. Try again.</div>';}
+  btn.disabled=false;btn.innerHTML='✦ Regenerate';
+}
+$('ai-btn-deals').addEventListener('click',()=>runAI('deals','ai-deals','ai-btn-deals'));
+$('ai-btn-inv').addEventListener('click',()=>runAI('inv','ai-inv','ai-btn-inv'));
+$('ai-btn-vibe').addEventListener('click',()=>runAI('vibe','ai-vibe','ai-btn-vibe'));
+
+// ── PROMOTIONS ────────────────────────────────────────────────────────────────
+function populatePromoBarSelect(){
+  const sel=$('promo-bar-select');if(!sel)return;
+  sel.innerHTML='<option value="">Select venue…</option>';
+  const bars=isAdmin?Object.keys(BAR_NAMES):userBars;
+  bars.forEach(id=>{const opt=document.createElement('option');opt.value=id;opt.textContent=BAR_NAMES[id]||id;sel.appendChild(opt);});
+}
+async function loadPromoStatus(){
+  const area=$('promo-status-area');if(!area)return;
+  const bars=isAdmin?Object.keys(BAR_NAMES):userBars;
+  const results=[];
+  await Promise.all(bars.map(async barId=>{
+    try{const snap=await getDoc(doc(db,'promotions',barId));if(snap.exists()){const d=snap.data();if(d.active)results.push({barId,...d});}}catch(e){}
+  }));
+  if(!results.length){area.innerHTML='<div class="promo-empty">No active promotions. Launch one below.</div>';$('promo-stop-btn').style.display='none';return;}
+  area.innerHTML=results.map(p=>{
+    const pct=Math.min(100,Math.round(((p.redeemed||0)/p.limit)*100));
+    return`<div class="promo-live-card">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div><div style="font-size:15px;font-weight:700;margin-bottom:3px;">${esc(p.title)}</div><div style="font-size:12px;color:var(--t2);">${esc(BAR_NAMES[p.barId]||p.barId)} · "${esc(p.message)}"</div></div>
+        <div class="live-pill" style="font-size:10px;padding:4px 10px;"><div class="live-dot"></div>Live</div>
+      </div>
+      <div class="promo-stat-row">
+        <div class="promo-stat"><div class="promo-stat-val" style="color:var(--pink);">${p.redeemed||0}</div><div class="promo-stat-lbl">Redeemed</div></div>
+        <div class="promo-stat"><div class="promo-stat-val" style="color:var(--teal);">${p.limit-(p.redeemed||0)}</div><div class="promo-stat-lbl">Remaining</div></div>
+        <div class="promo-stat"><div class="promo-stat-val" style="color:var(--t1);">${p.limit}</div><div class="promo-stat-lbl">Total Limit</div></div>
+        ${p.expiry?`<div class="promo-stat"><div class="promo-stat-val" style="font-size:14px;color:var(--gold);">${p.expiry}</div><div class="promo-stat-lbl">Expires</div></div>`:''}
+      </div>
+      <div class="promo-bar-wrap"><div class="promo-bar-fill" style="width:${pct}%;"></div></div>
+    </div>`;
+  }).join('');
+  $('promo-stop-btn').style.display='inline-block';
+  $('promo-stop-btn')._promoData=results[0];
+}
+async function loadPromoLog(barId){
+  const logBody=$('promo-log-body'),logCount=$('promo-log-count');if(!logBody)return;
+  try{
+    const snap=await getDoc(doc(db,'promotions',barId));
+    if(!snap.exists()){logBody.innerHTML='<div class="empty" style="padding:24px;">No redemptions yet.</div>';return;}
+    const data=snap.data();const users=data.redeemedUsers||[];const times=data.redeemedAt||{};
+    if(!users.length){logBody.innerHTML='<div class="empty" style="padding:24px;">No redemptions yet.</div>';return;}
+    if(logCount)logCount.textContent=users.length+' total';
+    logBody.innerHTML=`<div style="display:flex;flex-direction:column;gap:6px;">${users.map((uid,i)=>{
+      const t=times[uid]?new Date(times[uid]).toLocaleString():'—';
+      return`<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--s2);border:1px solid var(--border);border-radius:var(--rsm);font-size:12px;"><span style="color:var(--t2);">#${i+1}</span><span style="color:var(--t3);">${t}</span></div>`;
+    }).join('')}</div>`;
+  }catch(e){logBody.innerHTML='<div class="empty" style="padding:24px;">Could not load log.</div>';}
+}
+$('promo-launch-btn').addEventListener('click',async()=>{
+  const barId=$('promo-bar-select').value;
+  const title=$('promo-title').value.trim();
+  const message=$('promo-message').value.trim();
+  const limit=parseInt($('promo-limit').value)||100;
+  const expiry=$('promo-expiry').value||null;
+  if(!barId)return toast('Select a venue first');
+  if(!title)return toast('Enter a promotion title');
+  if(!message)return toast('Enter a bartender message');
+  try{
+    await setDoc(doc(db,'promotions',barId),{barId,active:true,title,message,limit,redeemed:0,redeemedUsers:[],redeemedAt:{},expiry,createdAt:new Date().toISOString()});
+    toast('Promotion launched for '+(BAR_NAMES[barId]||barId)+' 🚀');
+    $('promo-saved-msg').textContent='Launched at '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+    loadPromoStatus();loadPromoLog(barId);
+  }catch(e){toast('Failed to launch promotion');}
+});
+$('promo-stop-btn').addEventListener('click',async()=>{
+  const data=$('promo-stop-btn')._promoData;if(!data)return;
+  if(!confirm('Stop the promotion for '+(BAR_NAMES[data.barId]||data.barId)+'?'))return;
+  try{await setDoc(doc(db,'promotions',data.barId),{active:false},{merge:true});toast('Promotion stopped');loadPromoStatus();}
+  catch(e){toast('Failed to stop promotion');}
+});
+$('promo-bar-select')&&$('promo-bar-select').addEventListener('change',e=>{if(e.target.value)loadPromoLog(e.target.value);});
+
+// ── SETTINGS ─────────────────────────────────────────────────────────────────
+function populateRequestSelect(){
+  const sel=$('req-bar-select');if(!sel)return;
+  const existing=new Set(userBars);
+  Object.entries(BAR_NAMES).forEach(([id,name])=>{if(!existing.has(id)){const opt=document.createElement('option');opt.value=id;opt.textContent=name;sel.appendChild(opt);}});
+}
+async function loadPendingRequests(){
+  const con=$('pending-requests');if(!con)return;
+  try{
+    const od=await getDoc(doc(db,'Owners',currentUser.uid));
+    const reqs=(od.exists()&&od.data().barRequests)||[];
+    if(!reqs.length){con.innerHTML='';return;}
+    con.innerHTML=reqs.map(r=>`<div class="request-pending"><span>${BAR_NAMES[r.barId]||r.barId}</span><span class="pending-badge">${r.status||'Pending Review'}</span></div>`).join('');
+  }catch(e){con.innerHTML='';}
+}
+$('submit-request').addEventListener('click',async()=>{
+  const barId=$('req-bar-select').value;if(!barId)return toast('Please select a venue first');
+  try{
+    const od=await getDoc(doc(db,'Owners',currentUser.uid));
+    const existing=(od.exists()&&od.data().barRequests)||[];
+    if(existing.find(r=>r.barId===barId))return toast('Already requested — pending review');
+    const updated=[...existing,{barId,requestedAt:new Date().toISOString(),status:'Pending Review'}];
+    await setDoc(doc(db,'Owners',currentUser.uid),{barRequests:updated},{merge:true});
+    toast('Request submitted — we\'ll review shortly');loadPendingRequests();$('req-bar-select').value='';
+  }catch(e){toast('Failed to submit request');}
+});
+$('save-profile').addEventListener('click',async()=>{
+  const name=$('set-name').value.trim();if(!name)return;
+  try{
+    await setDoc(doc(db,'Owners',currentUser.uid),{name},{merge:true});
+    $('owner-name').textContent=name;
+    $('owner-av').textContent=name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+    $('dash-greeting').textContent=greet(name);
+    toast('Profile updated');
+  }catch(e){toast('Failed to save');}
+});
+$('save-pw').addEventListener('click',async()=>{
+  const p1=$('set-pw1').value,p2=$('set-pw2').value;
+  if(p1.length<6)return toast('Password must be at least 6 characters');
+  if(p1!==p2)return toast('Passwords do not match');
+  try{await updatePassword(currentUser,p1);$('set-pw1').value='';$('set-pw2').value='';toast('Password updated');}
+  catch(e){toast('Re-login required to change password');}
+});
+</script>
 </body>
 </html>
